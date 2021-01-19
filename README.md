@@ -1,1 +1,1 @@
-# Tip-calculator
+# Tip-calculator using HTML and CSS
