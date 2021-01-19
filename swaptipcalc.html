@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tip Calculator</title>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="swaptipcalc.css">
+</head>
+<body>
+<div>
+
+<div class="center">
+<h1>Tip Calculator</h1>
+</div>
+
+<div class="calculator">
+<form>
+<h3>Enter your bill amount:</h3>
+<h3>Rs. <input id="billamount" type="text"></h3>
+
+<h3>How was the service?</h3>
+<select id="service">
+<option value="0.2">Excellent - 20%</option>
+<option value="0.1">Medium - 10%</option>
+<option value="0.05">Not so good - 5%</option>
+</select>
+
+<h3>How many people are sharing the bill?</h3>
+<h3><input id="people" type="text" ></h3>
+<button type="button" id="calculate">Calculate</button>
+</form>
+</div>
+
+<div class="center">
+<h3>Tip amount</h3>
+<h3>Rs. <span id="tip">0.00</span></h3>
+<h3 id="each">each</h3>
+</div>
+
+<script type="text/javascript">
+function tipcalculator()
+{
+var billamount0 = document.getElementById("billamount").value;
+var service0 = document.getElementById("service").value;
+var people0 = document.getElementById("people").value;
+
+if (people0 === "" || people0 <= 1)
+{
+  people0 = 1;
+  document.getElementById("each").style.display = "none";
+}
+else
+{
+  document.getElementById("each").style.display = "block";
+}
+
+var total = (billamount0 * service0) / people0;
+total = Math.round(total * 100) / 100;
+total = total.toFixed(2);
+document.getElementById("tip").innerHTML = total;
+}
+
+document.getElementById("calculate").onclick = function()
+{
+  tipcalculator();
+}
+
+</script>
+</body>
+</html>
